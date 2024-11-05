@@ -2,7 +2,8 @@
 using namespace std;
 
 // Iterative approach to calculate Fibonacci numbers
-int fibonacci_iterative(int n) {
+int fibonacci_iterative(int n) 
+{
     int a = 0, b = 1, fib = 0;
     for (int i = 1; i < n; ++i) {
         fib = a + b;
@@ -13,12 +14,14 @@ int fibonacci_iterative(int n) {
 }
 
 // Recursive approach to calculate Fibonacci numbers
-int fibonacci_recursive(int n) {
+int fibonacci_recursive(int n) 
+{
     if (n <= 1) return n;
     return fibonacci_recursive(n - 1) + fibonacci_recursive(n - 2);
 }
 
-int main() {
+int main() 
+{
     int n;
     cout << "Enter a number: ";
     cin >> n;
