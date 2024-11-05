@@ -13,27 +13,32 @@ struct Item {
 };
 
 // Comparator function to sort items by value-to-weight ratio in descending order
-bool compare(Item a, Item b) {
+bool compare(Item a, Item b) 
+{
     double r1 = (double)a.value / a.weight;
     double r2 = (double)b.value / b.weight;
     return r1 > r2;
 }
 
 // Function to solve the fractional knapsack problem
-double fractionalKnapsack(int W, vector<Item>& items) {
-    // Sort items based on value-to-weight ratio in descending order
+double fractionalKnapsack(int W, vector<Item>& items) 
+{
+// Sort items based on value-to-weight ratio in descending order
     sort(items.begin(), items.end(), compare);
 
     double totalValue = 0.0;  // Total value accumulated in the knapsack
 
-    for (auto& item : items) {
+    for (auto& item : items) 
+    {
         // If the item can fit in the knapsack, take it all
-        if (W >= item.weight) {
+        if (W >= item.weight) 
+        {
             W -= item.weight;
             totalValue += item.value;
         }
         // If the item cannot fit, take the fractional part of it
-        else {
+        else 
+        {
             totalValue += item.value * ((double)W / item.weight);
             break;  // Knapsack is full
         }
@@ -42,7 +47,8 @@ double fractionalKnapsack(int W, vector<Item>& items) {
     return totalValue;
 }
 
-int main() {
+int main() 
+{
     int n, W;
     cout << "Enter the number of items: ";
     cin >> n;
@@ -52,7 +58,8 @@ int main() {
 
     vector<Item> items;
     cout << "Enter the value and weight of each item:\n";
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++) 
+    {
         int value, weight;
         cout << "Value and weight for item " << i + 1 << ": ";
         cin >> value >> weight;
@@ -62,5 +69,10 @@ int main() {
     double maxValue = fractionalKnapsack(W, items);
     cout << "The maximum value in the knapsack is: " << maxValue << endl;
 
+    int maxValue = knapsack01(W, items);
+    cout << "The maximum value in the knapsack is: " << maxValue << endl;
+
+
     return 0;
 }
+

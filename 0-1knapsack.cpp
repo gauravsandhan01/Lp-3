@@ -5,7 +5,8 @@
 using namespace std;
 
 // Structure to represent an item with weight and value
-struct Item {
+struct Item 
+{
     int value, weight;
 
     // Constructor for convenience
@@ -13,7 +14,8 @@ struct Item {
 };
 
 // Function to solve the 0-1 knapsack problem using dynamic programming
-int knapsack01(int W, vector<Item>& items) {
+int knapsack01(int W, vector<Item>& items) 
+{
     int n = items.size();
     vector<vector<int>> dp(n + 1, vector<int>(W + 1, 0));
 
@@ -34,7 +36,8 @@ int knapsack01(int W, vector<Item>& items) {
     return dp[n][W];
 }
 
-int main() {
+int main() 
+{
     int n, W;
     cout << "Enter the number of items: ";
     cin >> n;
@@ -44,7 +47,8 @@ int main() {
 
     vector<Item> items;
     cout << "Enter the value and weight of each item:\n";
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++) 
+    {
         int value, weight;
         cout << "Value and weight for item " << i + 1 << ": ";
         cin >> value >> weight;
